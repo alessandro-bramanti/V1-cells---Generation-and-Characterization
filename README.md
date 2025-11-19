@@ -10,6 +10,9 @@ of the paper mentioned above - arXiv preprint available
 Usage is documented in comments inside each file.
 All scripts have been tested with MATLAB R2022b (9.13.0.2049777)
 
+DISCLAIMER: The code is provided "as is. Developer makes no warranties, 
+express or implied, and hereby disclaims all implied warranties, 
+including any warranty of merchantability and warranty of fitness for a particular purpose.
 
 MAIN FILES (they may call ancillary scripts as described in comments):
 
