@@ -26,14 +26,7 @@ full_characterization.m
 	unneeded steps can be skipped commenting out the corresponding 
 	section inside the file
 
-V1_cell_set.mat
-	set of 100 cells analyzed in the paper
-	(format of the variables described in generate_V1_cell.m)
-V1_angular_dists.mat
-	angular distributions of excitatory and
-	inhibitory inputs in the set of 100 cells
-	analyzed in the paper
-	(format described in generate_V1_cell.m)
+
 V1_pinwheels_300_300.mat
 	orientation "pinwheel" map used for 
 	the paper's cell set
