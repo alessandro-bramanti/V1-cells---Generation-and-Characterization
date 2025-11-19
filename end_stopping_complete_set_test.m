@@ -26,10 +26,10 @@ close all
 % draw arrow legenda
 
 V1_end_stopping_resps=cell(1,length(test_cell_inds));
-V1_comp_1_ex_inputs=cell(1,length(test_cell_inds));
-V1_comp_1_in_inputs=cell(1,length(test_cell_inds));
+V1_end_stopping_dendr_resps=cell(1,length(test_cell_inds));
 
-cell_count=1;
+cell_count=1;                
+
 part_cell_count=1;  
 
 t0=tic;
@@ -66,9 +66,8 @@ for i=1:length(test_cell_inds)
 
 
     V1_end_stopping_resps{i}=zeros(2*angular_steps,2*r_steps-1);
-    V1_comp_1_ex_inputs{i}=zeros(dendrite_number,2*angular_steps,2*r_steps-1);
-    V1_comp_1_in_inputs{i}=zeros(dendrite_number,2*angular_steps,2*r_steps-1);
- 
+    V1_end_stopping_dendr_resps{i}=zeros(dendrite_number,2*angular_steps,2*r_steps-1);
+
     bar_width=eff_r(i);
     
     for angle=1:2*angular_steps
@@ -124,11 +123,9 @@ for i=1:length(test_cell_inds)
                 initial_step=1;
                 LGN_response;
                 
-                V1_end_stopping_resps{i}(angle,ind)=V1_soma_response(1,V1_ex_conn_inds(single_test_dendr_inds,:,:),V1_in_conn_inds(single_test_dendr_inds,:,:),I_conv)*correction_factors(i);    
-                tot_ex_inp=sum(squeeze(I_conv(V1_ex_conn_inds(single_test_dendr_inds,1,:))),2);
-                tot_in_inp=sum(squeeze(I_conv(V1_in_conn_inds(single_test_dendr_inds,1,:))),2);
-                V1_comp_1_ex_inputs{i}(:,angle,ind)=tot_ex_inp;
-                V1_comp_1_in_inputs{i}(:,angle,ind)=tot_in_inp;
+                [V1_end_stopping_resps{i}(angle,ind),V1_end_stopping_dendr_resps{i}(:,angle,ind)]=V1_soma_response(1,V1_ex_conn_inds(single_test_dendr_inds,:,:),V1_in_conn_inds(single_test_dendr_inds,:,:),I_conv);    
+                V1_end_stopping_resps{i}(angle,ind)=V1_end_stopping_resps{i}(angle,ind)*correction_factors(i);
+                V1_end_stopping_dendr_resps{i}(:,angle,ind)=V1_end_stopping_dendr_resps{i}(:,angle,ind)*correction_factors(i);
                 ind=ind+1;
             end
         elseif theta==pi/2
@@ -151,11 +148,9 @@ for i=1:length(test_cell_inds)
                 initial_step=1;
                 LGN_response;
                 
-                V1_end_stopping_resps{i}(angle,ind)=V1_soma_response(1,V1_ex_conn_inds(single_test_dendr_inds,:,:),V1_in_conn_inds(single_test_dendr_inds,:,:),I_conv)*correction_factors(i);    
-                tot_ex_inp=sum(squeeze(I_conv(V1_ex_conn_inds(single_test_dendr_inds,1,:))),2);
-                tot_in_inp=sum(squeeze(I_conv(V1_in_conn_inds(single_test_dendr_inds,1,:))),2);
-                V1_comp_1_ex_inputs{i}(:,angle,ind)=tot_ex_inp;
-                V1_comp_1_in_inputs{i}(:,angle,ind)=tot_in_inp;
+                [V1_end_stopping_resps{i}(angle,ind),V1_end_stopping_dendr_resps{i}(:,angle,ind)]=V1_soma_response(1,V1_ex_conn_inds(single_test_dendr_inds,:,:),V1_in_conn_inds(single_test_dendr_inds,:,:),I_conv);    
+                V1_end_stopping_resps{i}(angle,ind)=V1_end_stopping_resps{i}(angle,ind)*correction_factors(i);
+                V1_end_stopping_dendr_resps{i}(:,angle,ind)=V1_end_stopping_dendr_resps{i}(:,angle,ind)*correction_factors(i);
                 ind=ind+1;
             end
         else % theta=0
@@ -178,11 +173,9 @@ for i=1:length(test_cell_inds)
                 initial_step=1;
                 LGN_response;
                 
-                V1_end_stopping_resps{i}(angle,ind)=V1_soma_response(1,V1_ex_conn_inds(single_test_dendr_inds,:,:),V1_in_conn_inds(single_test_dendr_inds,:,:),I_conv)*correction_factors(i);    
-                tot_ex_inp=sum(squeeze(I_conv(V1_ex_conn_inds(single_test_dendr_inds,1,:))),2);
-                tot_in_inp=sum(squeeze(I_conv(V1_in_conn_inds(single_test_dendr_inds,1,:))),2);
-                V1_comp_1_ex_inputs{i}(:,angle,ind)=tot_ex_inp;
-                V1_comp_1_in_inputs{i}(:,angle,ind)=tot_in_inp;
+                [V1_end_stopping_resps{i}(angle,ind),V1_end_stopping_dendr_resps{i}(:,angle,ind)]=V1_soma_response(1,V1_ex_conn_inds(single_test_dendr_inds,:,:),V1_in_conn_inds(single_test_dendr_inds,:,:),I_conv);    
+                V1_end_stopping_resps{i}(angle,ind)=V1_end_stopping_resps{i}(angle,ind)*correction_factors(i);
+                V1_end_stopping_dendr_resps{i}(:,angle,ind)=V1_end_stopping_dendr_resps{i}(:,angle,ind)*correction_factors(i);
                 ind=ind+1; 
             end
     
