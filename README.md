@@ -1,12 +1,8 @@
-**********************************************************
-*							                                           *
-*		             Dendritic Computation 		               *
-* 	  and the Fine Structure of Receptive Fields:        *
-*		          A Model of V1 Neurons                      *
-*	                                                       *
-*		                A.P.Bramanti                         *
-*							                                           *
-**********************************************************
+"Dendritic Computation and the Fine Structure of Receptive Fields: a Model of V1 Neurons"
+ 
+A.P.Bramanti                         
+
+
 
 The MATLAB Scripts in this repository reproduce the main result
 of the paper mentioned above - arXiv preprint available
